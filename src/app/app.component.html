@@ -5,7 +5,16 @@
 <div *ngIf="isLoggedIn" class="container-fluid vh-100 d-flex flex-column">
   <div class="row">
     <header class="navbar sticky-top bg-primary p-2 shadow">
-      <a class="navbar-brand px-3 text-white" routerLink="/">Shopping</a>
+   
+      <a class="navbar-brand px-3 text-white" routerLink="home">Shopping</a>
+      <div class="cart-icon" routerLink="/cart">
+        <i class="fas fa-shopping-cart"></i>
+        <div class="cart-count" id="cartCount">0</div>
+    </div>
+    <li class="nav-item d-flex align-items-center px-4 ">
+      <i class="fa-solid fa-clock-rotate-left text-white"routerLink="/order"></i>
+<a class="nav-link d-flex align-items-center"></a>
+    </li>
       <div class="navbar-nav px-4 text-white" (click)="logout()" role="button">
         <i class="fa-solid fa-solid fa-right-from-bracket text-white"></i>
       </div>
@@ -21,17 +30,21 @@
               <i class="fa-solid fa-house"></i>
               <a class="nav-link d-flex align-items-center"> Dashboard </a>
             </li>
-            <li class="nav-item d-flex align-items-center px-4 sideBarActive">
+            <li class="nav-item d-flex align-items-center px-4 sideBarItem">
               <i class="fa-solid fa-book"></i>
-              <a class="nav-link d-flex align-items-center">Products </a>
+              <a class="nav-link d-flex align-items-center" routerLink="/AddBook">Products </a>
+            </li>
+            <li class="nav-item d-flex align-items-center px-4 sideBarItem">
+              <i class="fa-solid fas fa-bookmark fa-2x"></i>
+              <a class="nav-link d-flex align-items-center" routerLink="/addCategories">Category</a>
             </li>
             <li class="nav-item d-flex align-items-center px-4 sideBarItem">
               <i class="fa-solid fa-user"></i>
-              <a class="nav-link d-flex align-items-center">Users</a>
+              <a class="nav-link d-flex align-items-center" routerLink="/addUserDetails">Users</a>
             </li>
             <li class="nav-item d-flex align-items-center px-4 sideBarItem">
               <i class="fa-solid fa-clock-rotate-left"></i>
-              <a class="nav-link d-flex align-items-center">Orders </a>
+  <a class="nav-link d-flex align-items-center" routerLink="/AddOrder">Orders </a>
             </li>
           </ul>
         </div>

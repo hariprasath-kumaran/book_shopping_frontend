@@ -1,7 +1,13 @@
+import { Category } from "./category";
+
 export interface Book {
   id: number;
-  title: String;
-  description: String;
-  author: String;
+  category?:Category;
+  title: string;
+  description: string;
+  author: string;
   price: number;
+  categoryId:number;
+  photo:string;
+   
 }

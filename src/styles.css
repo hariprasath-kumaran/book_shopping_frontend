@@ -1,23 +1,23 @@
 @import url("https://fonts.googleapis.com/css2?family=Exo+2&display=swap");
 
 :root {
-  --primary-50: #fffbeb;
-  --primary-100: #fef3c7;
-  --primary-300: #fcd34d;
-  --primary-500: #f59e0b;
-  --primary-600: #d97706;
-  --primary-700: #b45309;
-  --primary-900: #78350f;
-  --secondary-100: #f1f5f9;
-  --secondary-500: #64748b;
-  --secondary-900: #0f172a;
-  --red-100: #fee2e2;
-  --red-300: #fca5a5;
-  --red-500: #ef4444;
-  --red-700: #b91c1c;
-  --green-300: #bef264;
-  --green-500: #84cc16;
-  --green-700: #4d7c0f;
+  --primary-50: #fff; /* white */
+  --primary-100: #f8f1eb; /* off-white */
+  --primary-300: #d3b396; /* light brown */
+  --primary-500: #8b5d33; /* medium brown */
+  --primary-600: #2e1100; /* dark brown */
+  --primary-700: #2e1100; /* even darker brown */
+  --primary-900: #241a11; /* very dark brown */
+  --secondary-100: #f1f5f9; /* off-white */
+  --secondary-500: #64748b; /* grayish blue */
+  --secondary-900: #0f172a; /* dark blue */
+  --red-100: #fee2e2; /* light red */
+  --red-300: #fca5a5; /* medium red */
+  --red-500: #ef4444; /* dark red */
+  --red-700: #b91c1c; /* even darker red */
+  --green-300: #bef264; /* light green */
+  --green-500: #84cc16; /* dark green */
+  --green-700: #4d7c0f; /* even darker green */
   --border-radius: 4px;
 }
 
@@ -25,6 +25,12 @@ body {
   font-family: "Exo 2", sans-serif;
   background-color: var(--primary-50);
 }
+
+/* ... (rest of the styles remain unchanged) */
+
+
+/* ... (rest of the styles remain unchanged) */
+
 
 /* text */
 .text-primary {

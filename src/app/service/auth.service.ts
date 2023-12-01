@@ -12,9 +12,6 @@ import { AppUser } from '../model/appUser';
   providedIn: 'root',
 })
 export class AuthService {
-  public userSubject: BehaviorSubject<string | null> = new BehaviorSubject<
-    string | null
-  >(null);
 
   private isAdminSubject = new BehaviorSubject<boolean>(false);
   private isLoggedInSubject = new BehaviorSubject<boolean>(false);
@@ -37,8 +34,8 @@ export class AuthService {
       .post<AppResponse>(`${urlEndpoint.baseUrl}/auth/login`, login)
       .pipe(
         map((user) => {
-          this.userSubject.next(
-            window.btoa(login.username + ':' + login.password)
+          this.storageService.setAuthData(
+            window.btoa(login.username + ":" + login.password)
           );
           return user;
         })
@@ -46,11 +43,12 @@ export class AuthService {
   }
 
   logout() {
-    this.userSubject.next(null);
+    this.storageService.removeAuthData();
     this.isAdminSubject.next(false);
     this.isLoggedInSubject.next(false);
     this.storageService.removeLoggedInUser();
-    this.router.navigate(['/login'], { replaceUrl: true });
+    this.storageService.removeRoute();
+    this.router.navigate(["/login"], { replaceUrl: true });
   }
 
   isAdmin(): boolean {
@@ -65,11 +63,14 @@ export class AuthService {
     this.storageService.setLoggedInUser(user);
     this.isLoggedInSubject.next(true);
 
+    let route: string | null = this.storageService.getRoute();
     if (user.role === CONSTANT.USER) {
-      this.router.navigate(['/'], { replaceUrl: true });
+      if (route === null) route = "";
+      this.router.navigate(["/home" + route], { replaceUrl: true });
     } else if (user.role === CONSTANT.ADMIN) {
+      if (route === null) route = "admin";
       this.isAdminSubject.next(true);
-      this.router.navigate(['/admin'], { replaceUrl: true });
+      this.router.navigate(["/" + route], { replaceUrl: true });
     }
   }
 }
